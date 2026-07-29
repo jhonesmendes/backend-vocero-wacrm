@@ -594,3 +594,4 @@ volumes:
 networks:
   default:
     name: wacrm-network
+    external: true

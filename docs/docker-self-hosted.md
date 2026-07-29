@@ -41,6 +41,9 @@ Storage e Studio no mesmo servidor Docker. Nenhum dado é enviado ao Supabase Cl
    docker compose --env-file infra/supabase/.env -f infra/supabase/docker-compose.yml up -d
    ```
 
+   No Portainer, crie antes uma rede do tipo `bridge` chamada
+   `wacrm-network`; as stacks Supabase e WACRM usam essa mesma rede externa.
+
 4. Aplique as migrações do WACRM. Este passo é seguro para repetir e registra as
    migrações já aplicadas:
 
