@@ -36,6 +36,12 @@ yarn-error.log*
 !.env.local.example
 !.env.example
 
+# Local Supabase runtime data and secrets. Never commit databases or uploaded
+# files; deployments must use Docker volumes/backups instead.
+/infra/supabase/.env
+/infra/supabase/volumes/db/data/
+/infra/supabase/volumes/storage/
+
 # vercel
 .vercel
 
