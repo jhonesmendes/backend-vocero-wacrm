@@ -1,0 +1,14 @@
+{$WACRM_DOMAIN} {
+  encode zstd gzip
+
+  # O navegador e o servidor usam a mesma origem pública do Supabase.
+  # As rotas da API Supabase são encaminhadas antes da aplicação Next.js.
+  @supabase path /auth/* /rest/* /realtime/* /storage/* /functions/* /graphql/* /pg/*
+  reverse_proxy @supabase kong:8000 {
+    # Preserve the original public HTTPS origin for GoTrue links.
+    header_up X-Forwarded-Host {http.request.host}
+    header_up X-Forwarded-Proto {scheme}
+  }
+
+  reverse_proxy app:3000
+}

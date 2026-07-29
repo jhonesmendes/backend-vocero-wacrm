@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.env*
+infra/supabase/.env
+infra/supabase/volumes/db/data
+infra/supabase/volumes/storage
+# A plataforma Supabase é iniciada por outro Compose. Seus arquivos Deno não
+# fazem parte do tsconfig do Next.js e não devem entrar na imagem do WACRM.
+infra/
+coverage
+npm-debug.log*
